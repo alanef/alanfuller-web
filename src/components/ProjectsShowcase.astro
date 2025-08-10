@@ -1,0 +1,155 @@
+---
+const featuredProjects = [
+  {
+    name: "Broadcaster",
+    url: "https://getbroadcaster.com",
+    headline: "WhatsApp Built for Service Businesses",
+    description: "Automate reminders and follow-ups, manage replies and marketing messages – all from the Broadcaster dashboard, using your WhatsApp Business number.",
+    benefit: "Beta Access Available",
+    color: "bg-gradient-to-br from-green-50 to-emerald-50"
+  },
+  {
+    name: "PagePrism",
+    url: "https://pageprism.com",
+    headline: "Know When Your Site Goes Down Before Your Customers Do",
+    description: "Free uptime monitoring that alerts you instantly. Because every minute of downtime costs you money.",
+    benefit: "100% Free Forever",
+    color: "bg-gradient-to-br from-orange-50 to-red-50"
+  },
+  {
+    name: "WordPress Security Suite",
+    url: "https://fullworksplugins.com",
+    headline: "Block 99.9% of Spam Without Annoying CAPTCHAs",
+    description: "Smart security that protects your site while keeping real customers happy. Used by thousands of businesses daily.",
+    benefit: "No More Lost Leads",
+    color: "bg-gradient-to-br from-blue-50 to-indigo-50"
+  },
+  {
+    name: "LPI Tools",
+    url: "https://lpi.tools",
+    headline: "Local Proxy Tool for Developers",
+    description: "Simplify local development with secure proxy tunnels. Perfect for testing webhooks, APIs, and sharing work in progress.",
+    benefit: "Developer Focused",
+    color: "bg-gradient-to-br from-purple-50 to-pink-50"
+  },
+  {
+    name: "Locally UK",
+    url: "https://locally.co.uk",
+    headline: "UK Local Business Directory",
+    description: "Connecting customers with local businesses across the UK. Simple, effective local search that works.",
+    benefit: "Growing Network",
+    color: "bg-gradient-to-br from-rose-50 to-pink-50"
+  },
+  {
+    name: "Badly Wired",
+    url: "https://badlywired.com",
+    headline: "Personal Tech Blog",
+    description: "Thoughts on technology, development, and business. Where I share lessons learned from building real products.",
+    benefit: "Tech Insights",
+    color: "bg-gradient-to-br from-gray-50 to-slate-50"
+  },
+  {
+    name: "Strategic Technical Audits",
+    url: "/contact",
+    headline: "Make the Right Tech Decisions Before They Cost You",
+    description: "Security audits, technology stack reviews, and digital strategy assessments. Get expert analysis that saves you from expensive mistakes.",
+    benefit: "From £2,500",
+    color: "bg-gradient-to-br from-indigo-50 to-blue-50"
+  }
+];
+
+const upcomingProjects = [
+  {
+    name: "FullWorkflow",
+    url: "https://fullworkflow.com",
+    description: "Workflow automation platform - Currently in development",
+    status: "development"
+  },
+  {
+    name: "Objective Goals",
+    url: "https://objectivegoals.com",
+    description: "Goal tracking system - Coming soon",
+    status: "planned"
+  },
+  {
+    name: "SailSport UK",
+    url: "https://sailsport.co.uk",
+    description: "Sailing products marketplace - In development",
+    status: "development"
+  },
+  {
+    name: "SailFun UK",
+    url: "https://sailfun.co.uk",
+    description: "Sailing community platform - In development",
+    status: "development"
+  }
+];
+---
+
+<section id="projects" class="py-24 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-section-title text-gray-900 mb-6">
+        Tools That Actually Work
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        WhatsApp marketing, website monitoring, WordPress security, developer tools - diverse solutions for different challenges. Each one battle-tested and proven.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {featuredProjects.map((project) => (
+        <a 
+          href={project.url}
+          target={project.url.startsWith('http') ? '_blank' : '_self'}
+          rel={project.url.startsWith('http') ? 'noopener noreferrer' : ''}
+          class={`group relative ${project.color} p-8 lg:p-10 transition-colors duration-300 border border-gray-200`}
+        >
+          <div class="flex items-start justify-between mb-6">
+            <span class="inline-block px-3 py-1 bg-white text-sm font-bold text-gray-700 border border-gray-200">
+              {project.benefit}
+            </span>
+          </div>
+          
+          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+            {project.headline}
+          </h3>
+          
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            {project.description}
+          </p>
+          
+          <div class="flex items-center justify-between">
+            <span class="text-[#1e3a8a] font-bold text-lg group-hover:underline">
+              Learn More
+            </span>
+            <svg class="w-5 h-5 text-[#1e3a8a] transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <!-- Upcoming Projects -->
+    <div class="mt-20">
+      <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">
+        Coming Soon
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {upcomingProjects.map((project) => (
+          <div class="p-6 bg-gray-50 border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-2">{project.name}</h4>
+            <p class="text-sm text-gray-600">{project.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="text-center mt-16">
+      <p class="text-xl text-gray-700">
+        <span class="font-bold text-[#1e3a8a]">80,000+ businesses</span> trust my diverse range of tools and solutions
+      </p>
+    </div>
+  </div>
+</section>

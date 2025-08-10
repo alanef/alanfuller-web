@@ -1,0 +1,81 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "WordPress Security & Website Monitoring Solutions by Alan Fuller - 12+ years building tools that keep business websites running smoothly" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} - Alan Fuller</title>
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content={title + " - Alan Fuller"} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://alanfuller.co.uk" />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title + " - Alan Fuller"} />
+		<meta name="twitter:description" content={description} />
+	</head>
+	<body class="min-h-screen bg-white text-gray-900 font-inter antialiased">
+		<slot />
+		
+		<style is:global>
+			:root {
+				--color-primary: #1e3a8a; /* Deep blue */
+				--color-primary-dark: #1e40af;
+				--color-accent: #f97316; /* Orange accent */
+				--color-gray-50: #f9fafb;
+				--color-gray-100: #f3f4f6;
+			}
+			
+			html {
+				font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			}
+			
+			.font-inter {
+				font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			}
+			
+			/* Smooth scroll behavior */
+			html {
+				scroll-behavior: smooth;
+			}
+			
+			/* Better focus styles */
+			*:focus {
+				outline: 2px solid var(--color-primary);
+				outline-offset: 2px;
+			}
+			
+			/* Typography scale */
+			.text-hero {
+				font-size: clamp(2.5rem, 5vw, 4.5rem);
+				line-height: 1.1;
+				font-weight: 900;
+			}
+			
+			.text-section-title {
+				font-size: clamp(2rem, 4vw, 3rem);
+				line-height: 1.2;
+				font-weight: 800;
+			}
+		</style>
+	</body>
+</html>

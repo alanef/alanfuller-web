@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const skills = [
+  { category: "WordPress", items: ["Plugin Development", "Security Hardening", "Performance Optimization", "Custom Themes"] },
+  { category: "Development", items: ["PHP", "JavaScript/TypeScript", "React", "Node.js"] },
+  { category: "Infrastructure", items: ["Server Management", "SSL/Security", "Monitoring", "API Integrations"] },
+  { category: "Business", items: ["SaaS Development", "Technical Consulting", "Project Management", "Customer Support"] }
+];
+---
+
+<Layout title="About" description="Learn about Alan Fuller's experience in WordPress security and website monitoring solutions">
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16">
+      <div class="container mx-auto px-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8">
+          About Alan Fuller
+        </h1>
+        <p class="text-xl text-gray-700 text-center max-w-3xl mx-auto">
+          Dedicated to helping small businesses maintain their online presence through practical, affordable solutions
+        </p>
+      </div>
+    </section>
+    
+    <!-- Bio Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg max-w-none text-gray-700">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">My Journey</h2>
+            
+            <p class="mb-6">
+              Since 2011, I've been immersed in the world of WordPress development and website security. 
+              What started as a passion for solving technical challenges has evolved into a mission to 
+              help small businesses navigate the complexities of maintaining a secure online presence.
+            </p>
+            
+            <p class="mb-6">
+              Over the past 12+ years, I've developed numerous WordPress plugins, security tools, and 
+              monitoring solutions that are now protecting over 1000 websites worldwide. My focus has 
+              always been on creating practical, user-friendly tools that solve real problems without 
+              requiring extensive technical knowledge.
+            </p>
+            
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">Why Small Business?</h2>
+            
+            <p class="mb-6">
+              Small businesses are the backbone of our economy, yet they often lack the resources for 
+              enterprise-level security solutions. I believe every business deserves reliable, affordable 
+              tools to keep their websites running smoothly. That's why I focus on developing solutions 
+              that are:
+            </p>
+            
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+              <li>Easy to implement without technical expertise</li>
+              <li>Affordable for small business budgets</li>
+              <li>Effective at preventing common security issues</li>
+              <li>Backed by responsive, personal support</li>
+            </ul>
+          </div>
+          
+          <!-- Skills Grid -->
+          <div class="mt-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Technical Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {skills.map((skillGroup) => (
+                <div class="bg-white border border-gray-200 p-6">
+                  <h3 class="text-xl font-bold text-gray-900 mb-4">{skillGroup.category}</h3>
+                  <ul class="space-y-2">
+                    {skillGroup.items.map((skill) => (
+                      <li class="flex items-center text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- CTA Section -->
+          <div class="mt-16 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Let's Work Together</h2>
+            <p class="text-lg text-gray-700 mb-8">
+              Whether you need help securing your WordPress site, monitoring your web presence, 
+              or building custom solutions, I'm here to help.
+            </p>
+            <a 
+              href="/contact" 
+              class="inline-flex items-center justify-center px-8 py-4 bg-[#1e3a8a] text-white font-bold hover:bg-[#1e40af] transition-colors"
+            >
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
