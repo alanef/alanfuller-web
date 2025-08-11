@@ -38,8 +38,11 @@
       <div class="order-1 md:order-2 flex justify-center md:justify-end">
         <div class="relative">
           <img 
-            src="/images/alanfuller.jpg" 
-            alt="Alan Fuller" 
+            src="/images/alanfuller-desktop.jpg"
+            srcset="/images/alanfuller-mobile.jpg 400w, /images/alanfuller-desktop.jpg 800w"
+            sizes="(max-width: 768px) 400px, 800px"
+            alt="Alan Fuller"
+            fetchpriority="high"
             class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-cover border border-gray-300"
           />
         </div>

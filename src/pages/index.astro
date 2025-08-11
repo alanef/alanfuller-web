@@ -14,3 +14,69 @@ import Footer from '../components/Footer.astro';
 	<ProjectsShowcase />
 	<Footer />
 </Layout>
+
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "ProfilePage",
+	"mainEntity": {
+		"@type": "Person",
+		"name": "Alan Fuller",
+		"image": "https://alanfuller.co.uk/images/alanfuller-og.jpg",
+		"jobTitle": "Systems & Web Expert for Small Business Success",
+		"description": "Building tools that keep 80,000+ small businesses running smoothly. WordPress security, website monitoring, and WhatsApp business solutions.",
+		"url": "https://alanfuller.co.uk",
+		"sameAs": [
+			"https://www.linkedin.com/in/aefuller/",
+			"https://x.com/alanefuller",
+			"https://youtube.com/@alanfuller",
+			"https://profiles.wordpress.org/alanfuller"
+		],
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Fullworks Digital Ltd",
+			"legalName": "FULLWORKS DIGITAL LTD",
+			"identifier": "07720957"
+		},
+		"makesOffer": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Strategic Technical Audits",
+					"description": "Security audits, technology stack reviews, and digital strategy assessments",
+					"provider": {
+						"@type": "Person",
+						"name": "Alan Fuller"
+					}
+				},
+				"price": "2500",
+				"priceCurrency": "GBP"
+			}
+		],
+		"owns": [
+			{
+				"@type": "SoftwareApplication",
+				"name": "Broadcaster",
+				"url": "https://getbroadcaster.com",
+				"applicationCategory": "BusinessApplication",
+				"description": "WhatsApp Built for Service Businesses"
+			},
+			{
+				"@type": "WebApplication",
+				"name": "PagePrism",
+				"url": "https://pageprism.com",
+				"applicationCategory": "MonitoringApplication",
+				"description": "Free uptime monitoring that alerts you instantly"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"name": "WordPress Security Suite",
+				"url": "https://fullworksplugins.com",
+				"applicationCategory": "SecurityApplication",
+				"description": "Block 99.9% of Spam Without Annoying CAPTCHAs"
+			}
+		]
+	}
+}
+</script>
