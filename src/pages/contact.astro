@@ -36,8 +36,8 @@ import Footer from '../components/Footer.astro';
             <!-- Primary Email CTA -->
             <div class="bg-[#1e3a8a] text-white p-8 mb-12">
               <p class="text-lg mb-4">The best way to reach me:</p>
-              <a href="#" class="text-3xl font-bold hover:underline email-link" data-user="alan" data-domain="alanfuller.co.uk">
-                <span class="email-placeholder">Email address loading, please wait</span>
+              <a href="#" class="text-3xl font-bold hover:underline email-link" data-user="YWxhbg==" data-domain="YWxhbmZ1bGxlci5jby51aw==">
+                <span class="email-placeholder">Contact information protected</span>
               </a>
             </div>
           </div>
@@ -124,28 +124,6 @@ import Footer from '../components/Footer.astro';
   <Footer />
 </Layout>
 
-<script>
-  // Email protection - decode and display email addresses
-  document.addEventListener('DOMContentLoaded', function() {
-    const emailLinks = document.querySelectorAll('.email-link');
-    
-    emailLinks.forEach(link => {
-      const user = link.dataset.user;
-      const domain = link.dataset.domain;
-      const email = user + '@' + domain;
-      
-      // Update the link
-      link.href = 'mailto:' + email;
-      
-      // Update the display text
-      const placeholder = link.querySelector('.email-placeholder');
-      if (placeholder) {
-        placeholder.textContent = email;
-      }
-    });
-  });
-</script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -153,7 +131,6 @@ import Footer from '../components/Footer.astro';
   "mainEntity": {
     "@type": "Person",
     "name": "Alan Fuller",
-    "email": "alan@alanfuller.co.uk",
     "url": "https://alanfuller.co.uk",
     "jobTitle": "Systems & Web Expert for Small Business Success",
     "worksFor": {

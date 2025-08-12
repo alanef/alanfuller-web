@@ -103,6 +103,8 @@ const upcomingProjects = [
           href={project.url}
           target={project.url.startsWith('http') ? '_blank' : '_self'}
           rel={project.url.startsWith('http') ? 'noopener noreferrer' : ''}
+          data-umami-event={project.url.startsWith('http') ? 'outbound-link-click' : ''}
+          data-umami-event-url={project.url.startsWith('http') ? project.url : ''}
           class={`group relative ${project.color} p-8 lg:p-10 transition-colors duration-300 border border-gray-200`}
         >
           <div class="flex items-start justify-between mb-6">

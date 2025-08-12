@@ -36,17 +36,35 @@
       
       <!-- Professional Photo -->
       <div class="order-1 md:order-2 flex justify-center md:justify-end">
-        <div class="relative">
-          <img 
-            src="/images/alanfuller-small.jpg"
-            srcset="/images/alanfuller-small.jpg 256w, /images/alanfuller-mobile.jpg 400w, /images/alanfuller-desktop.jpg 800w"
-            sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 448px"
-            alt="Alan Fuller"
-            fetchpriority="high"
-            loading="eager"
-            decoding="async"
-            class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-cover border border-gray-300"
-          />
+        <div class="relative group">
+          <!-- Decorative background element -->
+          <div class="absolute -inset-4 bg-gradient-to-br from-blue-100 via-blue-50 to-orange-50 rounded-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+          
+          <!-- Image container with enhanced styling -->
+          <div class="relative">
+            <!-- Subtle pattern overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/10 via-transparent to-orange-500/10 rounded-xl pointer-events-none z-10"></div>
+            
+            <img 
+              src="/images/alanfuller-small.jpg"
+              srcset="/images/alanfuller-small.jpg 256w, /images/alanfuller-mobile.jpg 400w, /images/alanfuller-desktop.jpg 800w"
+              sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, (max-width: 1024px) 384px, 448px"
+              alt="Alan Fuller"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+              class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-cover rounded-xl shadow-2xl ring-4 ring-white/50 group-hover:scale-[1.02] transition-transform duration-500"
+            />
+            
+            <!-- Corner accent badge -->
+            <div class="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-[#f97316] to-[#ea580c] rounded-tl-xl rounded-br-xl shadow-lg flex flex-col items-center justify-center text-white">
+              <span class="font-bold text-xl leading-none">12+</span>
+              <span class="text-[10px] font-medium">YEARS</span>
+            </div>
+            
+            <!-- Bottom accent line -->
+            <div class="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent rounded-full opacity-60"></div>
+          </div>
         </div>
       </div>
     </div>

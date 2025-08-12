@@ -89,6 +89,85 @@ const { title, description = "WordPress Security & Website Monitoring Solutions 
 	<body class="min-h-screen bg-white text-gray-900 font-inter antialiased">
 		<slot />
 		
+		<script>
+			// Enhanced email protection with multiple obfuscation layers
+			function initEmailProtection() {
+			  // Add CSS for email display
+			  const style = document.createElement('style');
+			  style.textContent = `
+			    .email-protected {
+			      cursor: pointer;
+			    }
+			    .email-protected::before {
+			      content: attr(data-user);
+			    }
+			    .email-protected::after {
+			      content: "@" attr(data-domain);
+			    }
+			    .email-protected .email-obfuscated {
+			      display: none;
+			    }
+			    .email-protected .email-placeholder {
+			      display: none;
+			    }
+			  `;
+			  document.head.appendChild(style);
+
+			  const emailLinks = document.querySelectorAll('.email-link');
+			  
+			  emailLinks.forEach(link => {
+			    // Get the encoded parts
+			    const userEncoded = link.dataset.user;
+			    const domainEncoded = link.dataset.domain;
+			    
+			    // Decode the parts (they'll be base64 encoded)
+			    const user = atob(userEncoded);
+			    const domain = atob(domainEncoded);
+			    
+			    // Create obfuscated display with fake domain
+			    const obfuscatedSpan = document.createElement('span');
+			    obfuscatedSpan.className = 'email-obfuscated';
+			    obfuscatedSpan.textContent = user + '@fake-domain.invalid';
+			    
+			    // Set the real email parts as data attributes for CSS
+			    link.dataset.user = user;
+			    link.dataset.domain = domain;
+			    
+			    // Clear all content and whitespace
+			    link.textContent = '';
+			    
+			    // Add the obfuscated span
+			    link.appendChild(obfuscatedSpan);
+			    
+			    // Add the protected class to trigger CSS display
+			    link.classList.add('email-protected');
+			    
+			    // Set up the mailto link on click to avoid having it in the DOM
+			    link.addEventListener('click', function(e) {
+			      e.preventDefault();
+			      const email = user + '@' + domain;
+			      window.location.href = 'mailto:' + email;
+			    });
+			    
+			    // Remove the href to prevent scrapers from finding it
+			    link.removeAttribute('href');
+			    
+			    // Add additional protection against right-click inspection
+			    link.addEventListener('contextmenu', function(e) {
+			      e.preventDefault();
+			      return false;
+			    });
+			  });
+			}
+
+			// Initialize on DOM ready
+			if (document.readyState === 'loading') {
+			  document.addEventListener('DOMContentLoaded', initEmailProtection);
+			} else {
+			  initEmailProtection();
+			}
+		</script>
+		
 		<style is:global>
 			:root {
 				--color-primary: #1e3a8a; /* Deep blue */

@@ -30,10 +30,10 @@ const socialLinks = [
           <a 
             href="#" 
             class="text-lg text-blue-100 hover:text-white transition-colors font-medium email-link"
-            data-user="alan"
-            data-domain="alanfuller.co.uk"
+            data-user="YWxhbg=="
+            data-domain="YWxhbmZ1bGxlci5jby51aw=="
           >
-            <span class="email-placeholder">Email address loading, please wait</span>
+            <span class="email-placeholder">Contact information protected</span>
           </a>
         </div>
         
@@ -43,6 +43,10 @@ const socialLinks = [
               href={link.url} 
               class="text-blue-200 hover:text-white transition-colors"
               aria-label={link.name}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="outbound-link-click"
+              data-umami-event-url={link.url}
             >
             {link.icon === 'linkedin' && (
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -75,25 +79,3 @@ const socialLinks = [
     </div>
   </div>
 </footer>
-
-<script>
-  // Email protection - decode and display email addresses
-  document.addEventListener('DOMContentLoaded', function() {
-    const emailLinks = document.querySelectorAll('.email-link');
-    
-    emailLinks.forEach(link => {
-      const user = link.dataset.user;
-      const domain = link.dataset.domain;
-      const email = user + '@' + domain;
-      
-      // Update the link
-      link.href = 'mailto:' + email;
-      
-      // Update the display text
-      const placeholder = link.querySelector('.email-placeholder');
-      if (placeholder) {
-        placeholder.textContent = email;
-      }
-    });
-  });
-</script>
