@@ -3,9 +3,10 @@
 export interface Props {
 	title: string;
 	description?: string;
+	preloadHeroImage?: boolean;
 }
 
-const { title, description = "WordPress Security & Website Monitoring Solutions by Alan Fuller - 12+ years building tools that keep business websites running smoothly" } = Astro.props;
+const { title, description = "WordPress Security & Website Monitoring Solutions by Alan Fuller - 12+ years building tools that keep business websites running smoothly", preloadHeroImage = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -26,11 +27,16 @@ const { title, description = "WordPress Security & Website Monitoring Solutions 
 		<link rel="preconnect" href="https://analytics.fw9.uk">
 		
 		<!-- Preload critical resources -->
-		<link rel="preload" href="/fonts/inter.css" as="style">
-		<link rel="preload" href="/images/alanfuller-small.jpg" as="image" media="(max-width: 640px)">
-		<link rel="preload" href="/images/alanfuller-mobile.jpg" as="image" media="(min-width: 641px) and (max-width: 768px)">
-		<link rel="preload" href="/images/alanfuller-desktop.jpg" as="image" media="(min-width: 769px)">
-		
+		<link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/inter-900.woff2" as="font" type="font/woff2" crossorigin>
+		{preloadHeroImage && (
+			<>
+				<link rel="preload" href="/images/alanfuller-small.webp" as="image" type="image/webp" media="(max-width: 640px)">
+				<link rel="preload" href="/images/alanfuller-mobile.webp" as="image" type="image/webp" media="(min-width: 641px) and (max-width: 768px)">
+				<link rel="preload" href="/images/alanfuller-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)">
+			</>
+		)}
+
 		<!-- Fonts -->
 		<link rel="stylesheet" href="/fonts/inter.css">
 		

@@ -1,0 +1,79 @@
+---
+const testimonials = [
+  {
+    quote: "We as an agency use this plugin in 250+ WP installations and have made the best experience with its functionality and usability – also on this a bit larger scale. Additionally the support did react exemplary when we had a problem.",
+    author: "doffine",
+    role: "Agency using 250+ installations",
+    source: "WordPress.org"
+  },
+  {
+    quote: "Plugin works great and does exactly as its name implies. Developer is also very kind, helpful and responsive even though this is a free plugin with no premium version. Thank you very much for your contribution and making WordPress better for everyone.",
+    author: "wanderingexplorer",
+    role: "WordPress User",
+    source: "WordPress.org"
+  },
+  {
+    quote: "The support is SUPER – very helpful, direct, and fast. Support even followed up again after helping just to confirm everything was good. I appreciate that level of service.",
+    author: "irish_guy",
+    role: "Eventbrite Widget User",
+    source: "Fullworks Plugins"
+  },
+  {
+    quote: "The team supporting the plugin were amazing helping a WordPress novice get everything working, even helping me build a custom plugin allowing me to tweak the calendar view for my specific requirements.",
+    author: "Ben Wild",
+    role: "WordPress Novice",
+    source: "Eventbrite Widget"
+  },
+  {
+    quote: "The plugin is great, but I have to especially commend the support which was attended to instantly, after hours, and comprehensively attended to the issue.",
+    author: "advantagepoint",
+    role: "Plugin User",
+    source: "WordPress.org"
+  },
+  {
+    quote: "Appreciate it greatly! Thank you for the good work.",
+    author: "40foot",
+    role: "Plugin User",
+    source: "WordPress.org"
+  }
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        What Users Say
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Real feedback from businesses using my tools
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      {testimonials.map((testimonial) => (
+        <div class="bg-gray-50 border border-gray-200 p-6 flex flex-col">
+          <div class="flex-grow mb-4">
+            <svg class="w-8 h-8 text-[#1e3a8a] mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              {testimonial.quote}
+            </p>
+          </div>
+          <div class="border-t border-gray-300 pt-4">
+            <p class="font-bold text-gray-900">{testimonial.author}</p>
+            <p class="text-sm text-gray-600">{testimonial.role}</p>
+            <p class="text-xs text-gray-500 mt-1">{testimonial.source}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-sm text-gray-600 italic">
+        ...and many more across WordPress.org and product sites
+      </p>
+    </div>
+  </div>
+</section>

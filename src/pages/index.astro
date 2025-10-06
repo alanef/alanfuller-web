@@ -2,18 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Testimonials from '../components/Testimonials.astro';
 import VideoIntro from '../components/VideoIntro.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ProjectsShowcase from '../components/ProjectsShowcase.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="WordPress Security & Website Monitoring Solutions">
+<Layout title="WordPress Security & Website Monitoring Solutions" preloadHeroImage={true}>
 	<Header />
-	<Hero />
-	<VideoIntro />
-	<AboutSection />
-	<ProjectsShowcase />
+	<main id="main-content">
+		<Hero />
+		<VideoIntro />
+		<AboutSection />
+		<Testimonials />
+		<ProjectsShowcase />
+	</main>
 	<Footer />
 </Layout>
 
@@ -26,7 +30,7 @@ import Footer from '../components/Footer.astro';
 		"name": "Alan Fuller",
 		"image": "https://alanfuller.co.uk/images/alanfuller-og.jpg",
 		"jobTitle": "Systems & Web Expert for Small Business Success",
-		"description": "Building tools that keep 80,000+ small businesses running smoothly. WordPress security, website monitoring, and WhatsApp business solutions.",
+		"description": "Building tools that keep small businesses running smoothly. Free and paid software products trusted by 80,000+ businesses. WordPress security, website monitoring, and WhatsApp business solutions.",
 		"url": "https://alanfuller.co.uk",
 		"sameAs": [
 			"https://www.linkedin.com/in/aefuller/",

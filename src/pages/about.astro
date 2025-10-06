@@ -13,8 +13,8 @@ const skills = [
 
 <Layout title="About" description="Learn about Alan Fuller's experience in WordPress security and website monitoring solutions">
   <Header />
-  
-  <main class="flex-grow">
+
+  <main id="main-content" class="flex-grow">
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16">
       <div class="container mx-auto px-6">
@@ -33,46 +33,118 @@ const skills = [
         <div class="max-w-4xl mx-auto">
           <div class="prose prose-lg max-w-none text-gray-700">
             <h2 class="text-3xl font-bold text-gray-900 mb-6">My Journey</h2>
-            
-            <p class="mb-6">
-              I've spent over four decades navigating the evolution of technology—from corporate mainframes to cloud computing to AI. My path has taken me from contractor to developer, project manager to team leader, and eventually to CTO and CIO roles before I made the leap to entrepreneurship 20 years ago.
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">From Corporate to Entrepreneur</h3>
+            <p class="mb-4">
+              I've spent over four decades working with technology. From corporate mainframes to cloud computing to AI.
             </p>
-            
             <p class="mb-6">
-              My independent journey began by building web solutions for my son's business ventures—an invaluable learning experience that taught me how technology should serve real business needs, not the other way around. I then acquired and operated an e-commerce business for a year, which gave me firsthand insight into the operational challenges small businesses face daily.
+              My path: contractor → developer → project manager → team leader → CTO/CIO. Then 20 years ago, I made the leap to entrepreneurship.
             </p>
-            
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Learning the Hard Way</h3>
+
+            <figure class="float-left mr-6 mb-4 max-w-xs">
+              <picture>
+                <source type="image/webp" srcset="/images/garden-office.webp">
+                <img
+                  src="/images/garden-office.jpg"
+                  alt="Garden office workspace"
+                  class="w-full rounded border border-gray-200 shadow-sm"
+                  loading="lazy"
+                >
+              </picture>
+            </figure>
+
+            <p class="mb-4">
+              My independent journey began building web solutions for my son's business ventures. This taught me a crucial lesson: technology should serve business needs, not the other way around.
+            </p>
             <p class="mb-6">
-              Seeking less operational complexity and more strategic focus, I pivoted to building a PPC agency, which naturally evolved into a WordPress development shop. This transition sparked what would become my core mission: creating practical business solutions in the form of WordPress plugins. What started as free tools to solve common problems gradually grew into a sustainable commercial venture.
+              I then acquired and operated an e-commerce business for a year. It gave me firsthand insight into the operational challenges small businesses face daily.
             </p>
-            
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8 clear-left">Finding My Mission</h3>
+            <p class="mb-4">
+              I pivoted to building a PPC agency. It naturally evolved into a WordPress development shop.
+            </p>
+            <p class="mb-4">
+              This transition sparked my core mission: creating practical business solutions. What started as free tools to solve common problems grew into a sustainable commercial venture.
+            </p>
             <p class="mb-6">
-              Along the way, I deepened my expertise as a cloud consultant and became a Google Partner, helping businesses navigate the rapidly changing technology landscape. A brief exploration into business coaching actually solidified my understanding that my true value lies in building technology solutions rather than just advising about them.
+              Along the way, I became a cloud consultant and Google Partner. A brief exploration into business coaching solidified my understanding: my true value lies in building solutions, not just advising about them.
             </p>
-            
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">My Expertise</h3>
+
+            <figure class="float-right ml-6 mb-4 max-w-xs">
+              <picture>
+                <source type="image/webp" srcset="/images/workspace.webp">
+                <img
+                  src="/images/workspace.jpg"
+                  alt="Team workspace with monitoring dashboards"
+                  class="w-full rounded border border-gray-200 shadow-sm"
+                  loading="lazy"
+                >
+              </picture>
+            </figure>
+
             <p class="mb-6">
-              Throughout both my corporate and entrepreneurial careers, I've developed a particular expertise in solution selection—understanding not just what's technically possible, but what actually works for real businesses with real constraints.
+              Throughout my career, I've developed expertise in solution selection. I understand not just what's technically possible, but what actually works for real businesses with real constraints.
             </p>
-            
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">Why Small Business?</h2>
-            
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12 clear-right">Why Small Business?</h2>
+
+            <figure class="float-right ml-6 mb-4 max-w-xs">
+              <picture>
+                <source type="image/webp" srcset="/images/community-engagement.webp">
+                <img
+                  src="/images/community-engagement.jpg"
+                  alt="Community engagement and local business support"
+                  class="w-full rounded border border-gray-200 shadow-sm"
+                  loading="lazy"
+                >
+              </picture>
+            </figure>
+
+            <p class="mb-4">
+              Small businesses are the backbone of our economy. Yet they often lack resources for enterprise-level solutions.
+            </p>
             <p class="mb-6">
-              Small businesses are the backbone of our economy, yet they often lack the resources for enterprise-level solutions. Having operated in both corporate and small business environments, I understand the unique challenges each faces. I believe every business deserves reliable, affordable tools that solve real problems without requiring extensive technical expertise.
+              Having operated in both corporate and small business environments, I understand the unique challenges each faces. Every business deserves reliable, affordable tools that solve real problems without requiring extensive technical expertise.
             </p>
-            
-            <p class="mb-6">
-              Today, I focus on developing solutions that are:
-            </p>
-            
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">What I Build</h3>
+
+            <figure class="float-left mr-6 mb-4 max-w-[200px]">
+              <picture>
+                <source type="image/webp" srcset="/images/security-plugin.webp">
+                <img
+                  src="/images/security-plugin.jpg"
+                  alt="Security plugin interface"
+                  class="w-full rounded border border-gray-200 shadow-sm"
+                  loading="lazy"
+                >
+              </picture>
+            </figure>
+
+            <p class="mb-4">Today, I focus on developing solutions that are:</p>
+
             <ul class="list-disc pl-6 mb-6 space-y-2">
               <li>Easy to implement without technical expertise</li>
               <li>Affordable for small business budgets</li>
               <li>Effective at solving common operational challenges</li>
               <li>Backed by responsive, personal support</li>
             </ul>
-            
+
+            <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8 clear-both">The Results</h3>
+            <p class="mb-4">
+              Over 80,000 businesses use my software tools—both free and paid products. They protect websites, monitor uptime, and communicate with customers.
+            </p>
+            <p class="mb-4">
+              I provide personal support and strategic advice to 60+ businesses currently. Several hundred served over the years.
+            </p>
             <p class="mb-6">
-              My WordPress plugins and monitoring tools now protect over 80,000 websites worldwide, and with the emergence of AI, I'm exploring new ways to help businesses leverage these powerful technologies practically and affordably.
+              With the emergence of AI, I'm exploring new ways to help businesses leverage these powerful technologies. Practically and affordably.
             </p>
           </div>
           
