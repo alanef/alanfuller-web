@@ -1,4 +1,5 @@
 ---
+const videoId = "Ph8m2xfkzo4";
 ---
 
 <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -12,28 +13,40 @@
           Watch this quick intro to learn how I help businesses leverage technology for growth and security
         </p>
       </div>
-      
+
       <div class="relative group">
         <!-- Decorative background element -->
         <div class="absolute -inset-4 bg-gradient-to-br from-blue-100 via-blue-50 to-orange-50 opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-lg"></div>
-        
+
         <!-- Video container with enhanced styling -->
         <div class="relative rounded-lg overflow-hidden shadow-2xl bg-gray-900 ring-4 ring-white/50 group-hover:scale-[1.01] transition-transform duration-500">
           <!-- Subtle pattern overlay -->
           <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/10 via-transparent to-orange-500/10 pointer-events-none z-10"></div>
-          
-          <div class="aspect-video">
-            <iframe
-              class="absolute inset-0 w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/Ph8m2xfkzo4?rel=0&modestbranding=1"
-              title="Alan Fuller - Introduction Video"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+
+          <div class="aspect-video youtube-facade" data-video-id={videoId}>
+            <!-- Thumbnail preview -->
+            <picture>
+              <source type="image/webp" srcset="/images/video-thumbnail.webp">
+              <img
+                src="/images/video-thumbnail.jpg"
+                alt="Alan Fuller - Introduction Video"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              >
+            </picture>
+
+            <!-- Play button overlay -->
+            <button
+              class="youtube-play-btn absolute inset-0 flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
+              aria-label="Play video"
+            >
+              <svg class="w-20 h-20 md:w-24 md:h-24 text-red-600 drop-shadow-2xl" viewBox="0 0 68 48" fill="currentColor">
+                <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"/>
+                <path d="M 45,24 27,14 27,34" fill="white"/>
+              </svg>
+            </button>
           </div>
-          
+
           <!-- Bottom accent line -->
           <div class="absolute bottom-0 left-12 right-12 h-1 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent rounded-full opacity-60"></div>
         </div>
@@ -58,6 +71,33 @@
     </div>
   </div>
 </section>
+
+<script>
+  // YouTube facade - load iframe only when user clicks play
+  document.addEventListener('DOMContentLoaded', () => {
+    const facades = document.querySelectorAll('.youtube-facade');
+
+    facades.forEach(facade => {
+      const playBtn = facade.querySelector('.youtube-play-btn');
+      if (!playBtn) return;
+
+      playBtn.addEventListener('click', () => {
+        const videoId = facade.dataset.videoId;
+        const iframe = document.createElement('iframe');
+
+        iframe.className = 'absolute inset-0 w-full h-full';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1`;
+        iframe.title = 'Alan Fuller - Introduction Video';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+
+        facade.innerHTML = '';
+        facade.appendChild(iframe);
+      });
+    });
+  });
+</script>
 
 <style>
   .aspect-video {
