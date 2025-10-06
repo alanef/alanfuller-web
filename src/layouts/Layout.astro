@@ -26,7 +26,41 @@ const { title, description = "WordPress Security & Website Monitoring Solutions 
 		<!-- Preconnect to external origins -->
 		<link rel="preconnect" href="https://analytics.fw9.uk">
 		
+		<!-- Inline critical font CSS to eliminate render blocking -->
+		<style>
+			/* Inter font faces - locally hosted WOFF2 */
+			@font-face {
+				font-family: 'Inter';
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: url('/fonts/inter-600.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Inter';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url('/fonts/inter-700.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Inter';
+				font-style: normal;
+				font-weight: 800;
+				font-display: swap;
+				src: url('/fonts/inter-800.woff2') format('woff2');
+			}
+			@font-face {
+				font-family: 'Inter';
+				font-style: normal;
+				font-weight: 900;
+				font-display: swap;
+				src: url('/fonts/inter-900.woff2') format('woff2');
+			}
+		</style>
+
 		<!-- Preload critical resources -->
+		<link rel="preload" href="/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/inter-900.woff2" as="font" type="font/woff2" crossorigin>
 		{preloadHeroImage && (
@@ -36,9 +70,6 @@ const { title, description = "WordPress Security & Website Monitoring Solutions 
 				<link rel="preload" href="/images/alanfuller-desktop.webp" as="image" type="image/webp" media="(min-width: 769px)">
 			</>
 		)}
-
-		<!-- Fonts -->
-		<link rel="stylesheet" href="/fonts/inter.css">
 		
 		<!-- Open Graph -->
 		<meta property="og:title" content={title + " - Alan Fuller"} />
