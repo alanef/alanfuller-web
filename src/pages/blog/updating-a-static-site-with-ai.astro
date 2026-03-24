@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Updating a Static Site With AI and Your Voice" description="How I spoke a prompt into my microphone and had AI generate a complete blog post for my Astro static site, including the page itself, the image, and the navigation link.">
+  <Header />
+
+  <main id="main-content" class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16">
+      <div class="container mx-auto px-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
+          Updating a Static Site With AI and Your Voice
+        </h1>
+        <p class="text-lg text-gray-500 text-center">24 March 2026</p>
+      </div>
+    </section>
+
+    <article class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto prose prose-lg max-w-none text-gray-700">
+
+          <!-- Section: What Happened -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">What Happened</h2>
+          <p class="mb-4">
+            I spoke into my microphone. A few seconds later, a complete blog post appeared on my static website. No CMS login. No markdown editor. No deploy pipeline to babysit. Just a voice prompt, an AI agent, and a git commit.
+          </p>
+          <p class="mb-6">
+            Here is the tweet that started it all:
+          </p>
+
+          <figure class="my-8">
+            <img
+              src="/images/voice-to-blog-tweet.png"
+              alt="Tweet from @alanefuller reading: Doesn't work that way any more, speak into the mike 'add a new article about how easy it is to update a static site with AI, write it in my voice, include important references and examples, oh and no em-dashes, thanks'"
+              class="w-full max-w-lg mx-auto rounded border border-gray-200 shadow-sm"
+              loading="lazy"
+            />
+            <figcaption class="text-center text-sm text-gray-500 mt-2">
+              The tweet that became the prompt that became this post.
+            </figcaption>
+          </figure>
+
+          <!-- Section: The Prompt I Gave -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">The Prompt I Gave</h2>
+          <p class="mb-4">
+            I was using Claude Code in my terminal, which accepts voice input through my microphone. The prompt I actually spoke was roughly this:
+          </p>
+          <blockquote class="border-l-4 border-[#1e3a8a] pl-6 my-6 italic text-gray-600">
+            "Use this screenshot, create some content based on that image and use that image in my static site as a blog post. Explain both this prompt in detail and the prompt that you're working from and how you did it, as well as the content, in different sections. Tell them what the technology is."
+          </blockquote>
+          <p class="mb-4">
+            That is it. No file paths. No template references. No CSS classes. The AI agent figured out the structure of my site, read the existing pages and components, matched the styling conventions, created the page, copied the image into the right directory, and wired up the navigation. All from a single spoken sentence.
+          </p>
+          <p class="mb-6">
+            The speech-to-text transcription was not perfect. It added some artefacts (the word "sand" appeared a few times where pauses occurred). But the AI understood the intent and filtered those out.
+          </p>
+
+          <!-- Section: The System Prompt Behind the Scenes -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">The System Prompt Behind the Scenes</h2>
+          <p class="mb-4">
+            Claude Code does not just receive my voice prompt in isolation. It operates within a context that includes:
+          </p>
+          <ul class="list-disc pl-6 mb-6 space-y-2">
+            <li><strong>A project-level CLAUDE.md file</strong> that describes the tech stack (Astro, Tailwind CSS, Docker/Nginx), the component structure, key features like email obfuscation and image optimization, and the essential commands for building and deploying.</li>
+            <li><strong>A global CLAUDE.md file</strong> with my personal preferences, telling the agent to always check the local project instructions first.</li>
+            <li><strong>Tool access</strong> to read files, write files, search the codebase, run shell commands, and use specialized sub-agents for exploration.</li>
+            <li><strong>Git awareness</strong> so it knows the current branch, recent commits, and repository state.</li>
+            <li><strong>A memory system</strong> that persists information across conversations, so the agent learns my preferences over time.</li>
+          </ul>
+          <p class="mb-6">
+            This means the AI already knew this was an Astro site with Tailwind CSS, that pages live in <code>src/pages/</code>, that components like Header and Footer exist, and that the styling follows specific conventions. It did not need me to explain any of that.
+          </p>
+
+          <!-- Section: How the AI Actually Did It -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">How the AI Actually Did It</h2>
+          <p class="mb-4">
+            Here is the step-by-step process the AI followed:
+          </p>
+          <ol class="list-decimal pl-6 mb-6 space-y-3">
+            <li><strong>Read the image</strong> to understand the tweet content and context.</li>
+            <li><strong>Explored the codebase</strong> by reading the layout, existing pages, components, and public directory structure.</li>
+            <li><strong>Analysed the writing style</strong> from the About page to match my voice: short paragraphs, direct language, practical focus.</li>
+            <li><strong>Copied the screenshot</strong> into <code>public/images/</code> so it could be served as a static asset.</li>
+            <li><strong>Created a blog directory</strong> at <code>src/pages/blog/</code> since the site did not have one yet.</li>
+            <li><strong>Wrote the full page</strong> as an Astro component, importing the same Header, Footer, and Layout used by every other page.</li>
+            <li><strong>Added a Blog link</strong> to the site navigation in the Header component.</li>
+          </ol>
+          <p class="mb-6">
+            The entire process, from voice prompt to finished page, took under a minute.
+          </p>
+
+          <!-- Section: The Technology -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">The Technology</h2>
+          <p class="mb-4">
+            Several technologies came together to make this work:
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Claude Code (the AI Agent)</h3>
+          <p class="mb-4">
+            <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="text-[#1e3a8a] underline hover:text-[#1e40af]">Claude Code</a> is Anthropic's agentic coding tool. It runs in your terminal and has direct access to your filesystem, shell, and development tools. Unlike a chatbot that just suggests code snippets, Claude Code actually reads your project, writes files, runs commands, and makes changes. It is powered by Claude, Anthropic's large language model.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Astro (the Static Site Framework)</h3>
+          <p class="mb-4">
+            <a href="https://astro.build" class="text-[#1e3a8a] underline hover:text-[#1e40af]">Astro</a> is a modern web framework for content-driven websites. It generates static HTML at build time, which means the site loads fast and costs almost nothing to host. Pages are written as <code>.astro</code> components that combine HTML templating with a frontmatter script section. This site uses Astro 5.x.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Tailwind CSS (the Styling)</h3>
+          <p class="mb-4">
+            <a href="https://tailwindcss.com" class="text-[#1e3a8a] underline hover:text-[#1e40af]">Tailwind CSS</a> provides utility classes directly in the HTML markup. Instead of writing separate CSS files, you apply styles like <code>text-gray-700</code> and <code>mb-4</code> inline. This makes it straightforward for an AI agent to match existing styling patterns by reading the markup of other pages.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mb-4 mt-8">Speech-to-Text Input</h3>
+          <p class="mb-6">
+            The voice input uses the system's built-in speech recognition. The transcribed text goes straight into Claude Code's terminal prompt. It is not a separate product or integration. You just talk, and the words appear as a prompt.
+          </p>
+
+          <!-- Section: Why This Matters for Small Businesses -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">Why This Matters for Small Businesses</h2>
+          <p class="mb-4">
+            I have spent years building tools for small businesses. The biggest barrier I see is not the technology itself. It is the friction of using it. Content management systems require logins, dashboards, formatting tools, and media uploaders. Even static site generators traditionally need you to know markdown, git, and the command line.
+          </p>
+          <p class="mb-4">
+            This approach removes almost all of that friction. You describe what you want in plain English (or speak it aloud), and the AI handles everything else: the file structure, the markup, the styling, the image placement, and the navigation updates.
+          </p>
+          <p class="mb-6">
+            It is not perfect. You still need to review what the AI produces. You still need a development environment set up. But the gap between "I have an idea for a blog post" and "it is live on my website" just got a lot smaller.
+          </p>
+
+          <!-- Section: Try It Yourself -->
+          <h2 class="text-3xl font-bold text-gray-900 mb-6 mt-12">Try It Yourself</h2>
+          <p class="mb-4">
+            If you want to experiment with this workflow:
+          </p>
+          <ol class="list-decimal pl-6 mb-6 space-y-2">
+            <li>Install <a href="https://docs.anthropic.com/en/docs/claude-code/overview" class="text-[#1e3a8a] underline hover:text-[#1e40af]">Claude Code</a> from Anthropic.</li>
+            <li>Open your project directory in the terminal.</li>
+            <li>Add a <code>CLAUDE.md</code> file describing your project structure and conventions.</li>
+            <li>Start talking. Or typing. Either works.</li>
+          </ol>
+          <p class="mb-6">
+            The CLAUDE.md file is the key. It gives the AI the context it needs to make sensible decisions about your project. Without it, the agent can still read your code and figure things out, but with it, the results are more consistent and more aligned with your preferences.
+          </p>
+
+          <!-- CTA -->
+          <div class="mt-12 p-8 bg-gray-50 border border-gray-200 text-center">
+            <p class="text-lg text-gray-700 mb-4">
+              Want to see more of what I build? Check out my projects or get in touch.
+            </p>
+            <div class="flex justify-center gap-4">
+              <a
+                href="/#projects"
+                class="inline-flex items-center justify-center px-6 py-3 bg-[#1e3a8a] text-white font-bold hover:bg-[#1e40af] transition-colors"
+              >
+                View Projects
+              </a>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center px-6 py-3 border-2 border-[#1e3a8a] text-[#1e3a8a] font-bold hover:bg-gray-50 transition-colors"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Updating a Static Site With AI and Your Voice",
+  "datePublished": "2026-03-24",
+  "author": {
+    "@type": "Person",
+    "name": "Alan Fuller",
+    "url": "https://alanfuller.co.uk"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fullworks Digital Ltd"
+  },
+  "image": "https://alanfuller.co.uk/images/voice-to-blog-tweet.png",
+  "description": "How I spoke a prompt into my microphone and had AI generate a complete blog post for my Astro static site.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alanfuller.co.uk/blog/updating-a-static-site-with-ai"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://alanfuller.co.uk"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://alanfuller.co.uk/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Updating a Static Site With AI and Your Voice",
+      "item": "https://alanfuller.co.uk/blog/updating-a-static-site-with-ai"
+    }
+  ]
+}
+</script>
