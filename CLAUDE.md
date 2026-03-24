@@ -11,6 +11,10 @@ Personal portfolio website for Alan Fuller built with Astro, featuring:
 - Umami analytics integration
 - Enhanced email obfuscation
 
+## Workflow
+
+- Always run `git pull` at the start of a session to ensure the local repo is up to date with the remote before making changes.
+
 ## Essential Commands
 
 ```bash
@@ -38,6 +42,14 @@ docker run -p 80:80 alanfuller-web
 - **Layout**: `src/layouts/Layout.astro` - Base HTML template with SEO, structured data, and email protection script
 - **Pages**: `src/pages/*.astro` - Routes based on file names
 - **Components**: `src/components/*.astro` - Reusable Astro components (Header, Hero, Footer, etc.)
+
+### Blog System
+- **Content Collection**: Blog posts live in `src/content/blog/` as markdown files with typed frontmatter
+- **Schema**: Defined in `src/content/config.ts` - requires `title`, `description`, `pubDate`; optional `author`, `tags`, `image`, `updatedDate`
+- **Index page**: `src/pages/blog/index.astro` - lists all posts sorted by date
+- **Post template**: `src/pages/blog/[...slug].astro` - renders individual posts using Astro content collections
+- **Styling**: Uses `@tailwindcss/typography` prose classes for markdown rendering
+- To add a new blog post, create a `.md` file in `src/content/blog/` with the required frontmatter
 
 ### Key Features Implementation
 
