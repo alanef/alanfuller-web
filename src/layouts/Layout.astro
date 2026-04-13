@@ -4,9 +4,17 @@ export interface Props {
 	title: string;
 	description?: string;
 	preloadHeroImage?: boolean;
+	ogImage?: string;
+	ogType?: string;
 }
 
-const { title, description = "WordPress Security & Website Monitoring Solutions by Alan Fuller - 12+ years building tools that keep business websites running smoothly", preloadHeroImage = false } = Astro.props;
+const { title, description = "WordPress Security & Website Monitoring Solutions by Alan Fuller - 12+ years building tools that keep business websites running smoothly", preloadHeroImage = false, ogImage, ogType = "website" } = Astro.props;
+
+const siteUrl = "https://alanfuller.co.uk";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = ogImage
+	? new URL(ogImage, siteUrl).toString()
+	: `${siteUrl}/images/alanfuller-og.jpg`;
 ---
 
 <!DOCTYPE html>
@@ -75,16 +83,21 @@ const { title, description = "WordPress Security & Website Monitoring Solutions 
 		<!-- Open Graph -->
 		<meta property="og:title" content={title + " - Alan Fuller"} />
 		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://alanfuller.co.uk" />
-		<meta property="og:image" content="https://alanfuller.co.uk/images/alanfuller-og.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		{!ogImage && (
+			<>
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+			</>
+		)}
+
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title + " - Alan Fuller"} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
 		
 		<!-- Umami Analytics -->
 		<script defer src="https://analytics.fw9.uk/script.js" data-website-id="88073fa7-c770-42d9-b1c5-48f275f73bd4"></script>

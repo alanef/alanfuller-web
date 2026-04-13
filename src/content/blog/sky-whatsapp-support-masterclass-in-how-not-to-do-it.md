@@ -4,7 +4,10 @@ description: "Sky's WhatsApp support channel is a live chat system wearing Whats
 pubDate: 2026-04-09
 author: "Alan Fuller"
 tags: ["whatsapp", "customer service", "sky", "whatsapp business", "broadcaster"]
+image: "/images/sky-whatsapp-support.png"
 ---
+
+![Cartoon of a customer on WhatsApp being passed between a row of confused Sky support agents sitting on a bench labelled "Support Platform"](/images/sky-whatsapp-support.png)
 
 I tried to cancel my Sky TV subscription recently. Sky don't offer online cancellation. You have to contact them, by design presumably, because frictionless cancellation doesn't serve their retention numbers. Fair enough, that's their business decision. But they do now offer WhatsApp as a contact channel, which caught my attention given that I spend a lot of time thinking about how businesses use WhatsApp effectively.
 

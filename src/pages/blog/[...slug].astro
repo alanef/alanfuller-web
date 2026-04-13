@@ -26,7 +26,7 @@ function formatDate(date: Date): string {
 }
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} ogImage={post.data.image} ogType="article">
   <Header />
 
   <main class="py-16 md:py-24">
